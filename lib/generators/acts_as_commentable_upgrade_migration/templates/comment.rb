@@ -1,4 +1,8 @@
 class Comment < ActiveRecord::Base
+  def connection
+    self.class.connection
+  end
+
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
   validates :body, :presence => true
