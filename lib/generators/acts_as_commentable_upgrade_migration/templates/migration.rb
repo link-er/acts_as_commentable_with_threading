@@ -5,9 +5,6 @@ class ActsAsCommentableUpgradeMigration < ActiveRecord::Migration
     add_column :comments, :parent_id, :integer
     add_column :comments, :lft, :integer
     add_column :comments, :rgt, :integer
-    add_column :comments, :updated_at, :datetime
-    
-    add_index :comments, :commentable_id
   end
   
   def self.down
@@ -16,8 +13,5 @@ class ActsAsCommentableUpgradeMigration < ActiveRecord::Migration
     remove_column :comments, :parent_id
     remove_column :comments, :lft
     remove_column :comments, :rgt
-    remove_column :comments, :updated_at
-    
-    remove_index :comments, :commentable_id
   end
 end
